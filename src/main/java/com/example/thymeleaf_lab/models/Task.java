@@ -2,12 +2,17 @@ package com.example.thymeleaf_lab.models;
 
 import java.time.LocalDateTime;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Task {
 
     public Long id;
+
     public String name;
 
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     public LocalDateTime dateTime;
+
     public String description;
 
     public Task(Long id, String name, LocalDateTime dateTime) {
@@ -46,6 +51,11 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Task [id=" + id + ", name=" + name + ", dateTime=" + dateTime + ", description=" + description + "]";
     }
 
 }
